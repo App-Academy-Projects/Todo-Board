@@ -34,4 +34,14 @@ class List
     def priority
         @items.first
     end
+
+    def print
+        puts "------------------------------------------"
+        puts "                 GROCERIES"
+        puts "------------------------------------------"
+        puts "#{"Index".ljust(6)}| #{"Item".ljust(20)}| Deadline"
+        puts "------------------------------------------"
+        (0...self.size).each { |i| puts "#{i.to_s.ljust(6)}| #{self[i].title.ljust(20)}| #{self[i].deadline}"}
+        puts "------------------------------------------"
+    end
 end
