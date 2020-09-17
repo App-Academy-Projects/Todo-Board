@@ -7,7 +7,7 @@ class List
         @items = []
     end
 
-    def add_item(title, deadline, description)
+    def add_item(title, deadline, description="")
         return false if !Item.valid_date?(deadline)
         return true if @items << Item.new(title, deadline, description)
     end
@@ -29,5 +29,9 @@ class List
     def [](index)
         return nil if !self.valid_index?(index)
         return @items[index]
+    end
+
+    def priority
+        @items.first
     end
 end
