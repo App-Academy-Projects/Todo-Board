@@ -58,6 +58,13 @@ class TodoBoard
                 args.map!(&:to_i)
                 @list.print_full_item(*args)
             end
+        when 'toggle'
+            if args.size != 1
+                puts "toggle command, should be like this `toggle <index>`"
+            else
+                args.map!(&:to_i)
+                @list.toggle_item(*args)
+            end
         when 'quit'
             return false
         else

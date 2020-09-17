@@ -8,10 +8,15 @@ class Item
         return valid_year && valid_month && valid_day
     end
 
-    def initialize(title, deadline, description)
+    def initialize(title, deadline, description, done)
         raise "deadline: #{deadline} is Invalid Date" if !Item.valid_date?(deadline)
         @title = title
         @deadline = deadline
         @description = description
+        @done = false
+    end
+
+    def toggle
+        @done = !@done
     end
 end

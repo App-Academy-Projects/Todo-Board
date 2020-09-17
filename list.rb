@@ -82,4 +82,8 @@ class List
     def sort_by_date!
         @items.sort_by!  { |item| item.deadline }
     end
+
+    def toggle_item(index)
+        @items[index].toggle
+    end
 end
