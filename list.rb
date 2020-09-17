@@ -11,4 +11,8 @@ class List
         return false if !Item.valid_date?(deadline)
         return true if @items << Item.new(title, deadline, description)
     end
+
+    def size
+        return @items.size
+    end
 end
