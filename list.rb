@@ -25,4 +25,9 @@ class List
         @items[index_1], @items[index_2] = @items[index_2], @items[index_1]
         return true
     end
+
+    def [](index)
+        return nil if !self.valid_index?(index)
+        return @items[index]
+    end
 end
