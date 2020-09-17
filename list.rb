@@ -39,16 +39,16 @@ class List
         puts "------------------------------------------"
         puts "                 GROCERIES"
         puts "------------------------------------------"
-        puts "#{"Index".ljust(6)}| #{"Item".ljust(20)}| Deadline"
+        puts "#{"Index".ljust(6)}| #{"Item".ljust(20)}| #{"Deadline".ljust(10)}| Done"
         puts "------------------------------------------"
-        (0...self.size).each { |i| puts "#{i.to_s.ljust(6)}| #{self[i].title.ljust(20)}| #{self[i].deadline}"}
+        (0...self.size).each { |i| puts "#{i.to_s.ljust(6)}| #{self[i].title.ljust(20)}| #{self[i].deadline.ljust(10)}| [#{self[i].done}]"}
         puts "------------------------------------------"
     end
     
     def print_full_item(index)
         puts "------------------------------------------"
         item = self[index]
-        puts "#{item.title.ljust(20)} #{item.deadline}"
+        puts "#{item.title.ljust(20)} #{item.deadline.ljust(15)} [#{item.done}]"
         puts "#{item.description}"
         puts "------------------------------------------"
     end
@@ -85,5 +85,22 @@ class List
 
     def toggle_item(index)
         @items[index].toggle
+    end
+
+    def remove_item(index)
+        return false if !valid_index?(index)
+        @items.delete_at(index)
+        return true
+    end
+
+    def purge
+        i = 0
+        while i < self.size
+            if @items[i].done == '✓'
+                self.remove_item(i)
+                next
+            end
+            i += 1
+        end
     end
 end

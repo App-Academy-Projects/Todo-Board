@@ -1,5 +1,5 @@
 class Item
-    attr_accessor :title, :deadline, :description
+    attr_accessor :title, :deadline, :description, :done
     def self.valid_date?(date_string)
         year, month, day = date_string.split('-')
         valid_year = year >= "2019" && year < "3000"
@@ -8,15 +8,19 @@ class Item
         return valid_year && valid_month && valid_day
     end
 
-    def initialize(title, deadline, description, done)
+    def initialize(title, deadline, description)
         raise "deadline: #{deadline} is Invalid Date" if !Item.valid_date?(deadline)
         @title = title
         @deadline = deadline
         @description = description
-        @done = false
+        @done = ' '
     end
 
     def toggle
-        @done = !@done
+        if @done == ' '
+            @done = '✓'
+        else
+            @done = ' '
+        end
     end
 end

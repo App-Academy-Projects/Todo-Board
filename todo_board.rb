@@ -65,6 +65,19 @@ class TodoBoard
                 args.map!(&:to_i)
                 @list.toggle_item(*args)
             end
+        when 'rm'
+            if args.size != 1
+                puts "rm command, should be like this `rm <index>`"
+            else
+                args.map!(&:to_i)
+                @list.remove_item(*args)
+            end
+        when 'purge'
+            if args.size != 0
+                puts "purge command, should be like this `purge`"
+            else
+                @list.purge
+            end
         when 'quit'
             return false
         else
