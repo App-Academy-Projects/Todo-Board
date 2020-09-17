@@ -56,4 +56,26 @@ class List
     def print_priority
         print_full_item(0)
     end
+
+    def up(index, amount=1)
+        return false if !self.valid_index?(index)
+        tmp_ind = index
+        amount.times do ||
+            break if tmp_ind == 0
+            self.swap(tmp_ind, tmp_ind - 1)
+            tmp_ind -= 1
+        end
+        return true
+    end
+
+    def down(index, amount=1)
+        return false if !self.valid_index?(index)
+        tmp_ind = index
+        amount.times do ||
+            break if tmp_ind == self.size - 1
+            self.swap(tmp_ind, tmp_ind + 1)
+            tmp_ind += 1
+        end
+        return true
+    end
 end
