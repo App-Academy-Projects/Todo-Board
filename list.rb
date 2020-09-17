@@ -44,4 +44,16 @@ class List
         (0...self.size).each { |i| puts "#{i.to_s.ljust(6)}| #{self[i].title.ljust(20)}| #{self[i].deadline}"}
         puts "------------------------------------------"
     end
+    
+    def print_full_item(index)
+        puts "------------------------------------------"
+        item = self[index]
+        puts "#{item.title.ljust(20)} #{item.deadline}"
+        puts "#{item.description}"
+        puts "------------------------------------------"
+    end
+
+    def print_priority
+        print_full_item(0)
+    end
 end
