@@ -33,17 +33,15 @@ In this project I try to simulate the down image :D
 I tried to simplify using your board easily by some simple commands
 
 - make a new list with the given label
-
     ```bash
     mklist <new_list_label>
     ```
     
 - List all lists/boards names
-
     ```bash
     ls
     ```
-    
+
 - List all lists/boards
 
     ```bash
@@ -79,45 +77,46 @@ I tried to simplify using your board easily by some simple commands
     ```bash
     priority <list_label>
     ```
-    
+
 - Sort the given list by deadline
 
     ```bash
     sort <list_label>
     ```
 
-- Print all items of the given list if index is not provided, or print the specific item of the given list if index is provided
+- Print all items of the given list if index is not provided
+- Print the specific item of the given list if index is provided
 
-      ```bash
-      print <list_label> <optional_index>
-      ```
+    ```bash
+    print <list_label> <optional_index>
+    ```
       
 - Toggle "done" for the specified item on the given list
 
-      ```bash
-      toggle <list_label> <item_index>
-      ```
+   ```bash
+   toggle <list_label> <item_index>
+   ```
       
 - Remove the specified item on the given list
 
-      ```bash
-      rm <list_label> <item_index>
-      ```
+   ```bash
+   rm <list_label> <item_index>
+   ```
       
 - Remove all "done" items on the given list
 
-      ```bash
-      purge <list_label>
-      ```
+   ```bash
+   purge <list_label>
+   ```
       
 - Remove all "done" items on all lists
 
-      ```bash
-      purgeall
-      ```
+   ```bash
+   purgeall
+   ```
       
 - Exit from the command
 
-      ```bash
-      quit
-      ```
+   ```bash
+   quit
+   ```
