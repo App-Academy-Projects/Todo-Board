@@ -1,5 +1,12 @@
 require './item.rb'
 
+# print styles
+LINE_WIDTH = 49
+INDEX_COL_WIDTH = 5
+ITEM_COL_WIDTH = 20
+DEADLINE_COL_WIDTH = 10
+CHECKMARK = "\u2713".force_encoding('utf-8') # pretty checkmark
+
 class List
     attr_accessor :label
     def initialize(label)
@@ -36,21 +43,26 @@ class List
     end
 
     def print
-        puts "------------------------------------------"
-        puts "                 #{@label.upcase}"
-        puts "------------------------------------------"
-        puts "#{"Index".ljust(6)}| #{"Item".ljust(20)}| #{"Deadline".ljust(10)}| Done"
-        puts "------------------------------------------"
-        (0...self.size).each { |i| puts "#{i.to_s.ljust(6)}| #{self[i].title.ljust(20)}| #{self[i].deadline.ljust(10)}| [#{self[i].done}]"}
-        puts "------------------------------------------"
+        puts "-" * LINE_WIDTH
+        puts " " * 16 + self.label.upcase
+        puts "-" * LINE_WIDTH
+        puts "#{"Index".ljust(INDEX_COL_WIDTH)}| #{"Item".ljust(ITEM_COL_WIDTH)}| #{"Deadline".ljust(DEADLINE_COL_WIDTH)}| Done"
+        puts "-" * LINE_WIDTH
+        @items.each_with_index do |item, i|
+            status = item.done ? CHECKMARK : ' '
+            puts "#{i.to_s.ljust(INDEX_COL_WIDTH)}| #{item.title.ljust(ITEM_COL_WIDTH)}| #{item.deadline.ljust(DEADLINE_COL_WIDTH)}| [#{status}]"
+        end
+        puts "-" * LINE_WIDTH
     end
     
     def print_full_item(index)
-        puts "------------------------------------------"
         item = self[index]
-        puts "#{item.title.ljust(20)} #{item.deadline.ljust(15)} [#{item.done}]"
-        puts "#{item.description}"
-        puts "------------------------------------------"
+        return if item.nil?
+        status = item.done ? CHECKMARK : ' '
+        puts "-" * LINE_WIDTH
+        puts "#{item.title.ljust(LINE_WIDTH/2)} #{item.deadline} [#{status}]".rjust(LINE_WIDTH/2)
+        puts item.description
+        puts "-" * LINE_WIDTH
     end
 
     def print_priority
@@ -94,13 +106,6 @@ class List
     end
 
     def purge
-        i = 0
-        while i < self.size
-            if @items[i].done == '✓'
-                self.remove_item(i)
-                next
-            end
-            i += 1
-        end
+        @items.delete_if(&:done)
     end
 end

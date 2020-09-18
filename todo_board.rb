@@ -164,3 +164,6 @@ class TodoBoard
         end
     end
 end
+
+### Run the program
+TodoBoard.new.run
