@@ -85,10 +85,8 @@ I tried to simplify using your board easily by some simple commands
     ```bash
     sort <list_label>
     ```
-    
-- Print all items of the given list *if index is not provided*
-- Print the specific item of the given list *if index is provided*
 
+- Print all items of the given list if index is not provided, or print the specific item of the given list if index is provided
 
       ```bash
       print <list_label> <optional_index>
