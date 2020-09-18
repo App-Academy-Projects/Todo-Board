@@ -37,7 +37,7 @@ class List
 
     def print
         puts "------------------------------------------"
-        puts "                 GROCERIES"
+        puts "                 #{@label.upcase}"
         puts "------------------------------------------"
         puts "#{"Index".ljust(6)}| #{"Item".ljust(20)}| #{"Deadline".ljust(10)}| Done"
         puts "------------------------------------------"
