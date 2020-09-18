@@ -1,5 +1,6 @@
 class Item
-    attr_accessor :title, :deadline, :description, :done
+    attr_accessor :title, :deadline, :description
+    attr_reader :done
     def self.valid_date?(date_string)
         year, month, day = date_string.split('-')
         valid_year = year >= "2019" && year < "3000"
@@ -13,14 +14,10 @@ class Item
         @title = title
         @deadline = deadline
         @description = description
-        @done = ' '
+        @done = false
     end
 
     def toggle
-        if @done == ' '
-            @done = '✓'
-        else
-            @done = ' '
-        end
+        @done = !@done
     end
 end
