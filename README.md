@@ -138,7 +138,8 @@ then in pry write
 load 'todo_board.rb'
 ```
 It works!! :smiley:
-Use up commands to manage your boards 
+
+Use up **commands** to manage your boards 
 
 ## Demo 
 
