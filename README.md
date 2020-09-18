@@ -73,3 +73,53 @@ I tried to simplify using your board easily by some simple commands
     ```bash
     swap <list_label> <item_index_1> <item_index_2>
     ```
+
+- Print the all information for the item at the top of the given list
+
+    ```bash
+    priority <list_label>
+    ```
+    
+- Sort the given list by deadline
+
+    ```bash
+    sort <list_label>
+    ```
+    
+- Print all items of the given list *if index is not provided*
+- Print the specific item of the given list *if index is provided*
+
+
+      ```bash
+      print <list_label> <optional_index>
+      ```
+      
+- Toggle "done" for the specified item on the given list
+
+      ```bash
+      toggle <list_label> <item_index>
+      ```
+      
+- Remove the specified item on the given list
+
+      ```bash
+      rm <list_label> <item_index>
+      ```
+      
+- Remove all "done" items on the given list
+
+      ```bash
+      purge <list_label>
+      ```
+      
+- Remove all "done" items on all lists
+
+      ```bash
+      purgeall
+      ```
+      
+- Exit from the command
+
+      ```bash
+      quit
+      ```
